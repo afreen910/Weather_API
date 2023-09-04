@@ -73,8 +73,8 @@ class WeatherApi:
 # new func
   def astro_timings(self,raw_data):
 
-    # raw_data = self.get_historical_data()
-    max_sunrise = parser.parse(raw_data['forecast']['forecastday'][0]['astro']['sunrise']).time()
+    raw_data = self.get_historical_data()
+    max_sunrise = parser.parse(raw_data['forecast']['forecastday'][1]['astro']['sunrise']).time()
     min_sunrise = parser.parse(raw_data['forecast']['forecastday'][0]['astro']['sunrise']).time()
     max_sunset = parser.parse(raw_data['forecast']['forecastday'][0]['astro']['sunset']).time()
     min_sunset = parser.parse(raw_data['forecast']['forecastday'][0]['astro']['sunset']).time()
