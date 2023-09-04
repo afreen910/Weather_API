@@ -74,18 +74,15 @@ class WeatherApi:
   def astro_timings(self,raw_data):
 
     # raw_data = self.get_historical_data()
-    print(raw_data.keys())
     max_sunrise = parser.parse(raw_data['forecast']['forecastday'][0]['astro']['sunrise']).time()
     min_sunrise = parser.parse(raw_data['forecast']['forecastday'][0]['astro']['sunrise']).time()
     max_sunset = parser.parse(raw_data['forecast']['forecastday'][0]['astro']['sunset']).time()
     min_sunset = parser.parse(raw_data['forecast']['forecastday'][0]['astro']['sunset']).time()
     max_date=min_date=max_sunset_date=min_sunset_date = raw_data['forecast']['forecastday'][0]['date']
 
-    print(max_date,min_date,max_sunset_date,min_sunset_date)
     daily_data = raw_data['forecast']['forecastday']
     shuffle(daily_data)
     for day_info in daily_data :
-      print(day_info['date'], day_info['astro']['sunrise'], day_info['astro']['sunset'])
       time1= day_info['astro']['sunrise']
       time2 =day_info['astro']['sunset']
 
